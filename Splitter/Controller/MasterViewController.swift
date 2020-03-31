@@ -13,6 +13,7 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeCellHeight(tableView.frame.height)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -54,12 +55,16 @@ class MasterViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        changeCellHeight(size.height)
+    }
+    
+    func changeCellHeight(_ height: CGFloat) {
         if let navBarHeight = navigationController?.navigationBar.frame.height {
-            return (tableView.frame.height - navBarHeight) / CGFloat(imagesArray.count)
+            tableView.rowHeight = (height - navBarHeight) / CGFloat(imagesArray.count)
+        } else {
+            tableView.rowHeight = (height - 44) / CGFloat(imagesArray.count)
         }
-        
-        return (tableView.frame.height - 60) / CGFloat(imagesArray.count)
     }
 }
 

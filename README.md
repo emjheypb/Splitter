@@ -1,4 +1,5 @@
 # Splitter
 Splitter Demo
 
-- master detail view
+- splitter detail view
+- detect orientation change (MasterViewController.swift)
