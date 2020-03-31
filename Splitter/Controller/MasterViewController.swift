@@ -24,6 +24,7 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let controller = (segue.destination as! UINavigationController).topViewController as! ImagePresentationVC
+                controller.image = imagesArray[indexPath.row]
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -49,6 +50,16 @@ class MasterViewController: UITableViewController {
         return cell
     }
 
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let navBarHeight = navigationController?.navigationBar.frame.height {
+            return (tableView.frame.height - navBarHeight) / CGFloat(imagesArray.count)
+        }
+        
+        return (tableView.frame.height - 60) / CGFloat(imagesArray.count)
+    }
 }
 

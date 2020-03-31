@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Master-->
+        <!--Splits-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController title="Splits" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -26,12 +26,12 @@
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Detail" id="JEX-9P-axG" customClass="ImagePresentationVC" customModule="Splitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" modalPresentationStyle="fullScreen" id="JEX-9P-axG" customClass="ImagePresentationVC" customModule="Splitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eYp-TW-5e7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eYp-TW-5e7">
                                 <rect key="frame" x="0.0" y="248" width="414" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eYp-TW-5e7" secondAttribute="height" multiplier="207:200" id="Gxk-Zy-2Wp"/>
@@ -42,17 +42,16 @@
                         <constraints>
                             <constraint firstItem="eYp-TW-5e7" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" id="3KA-jY-2jc"/>
                             <constraint firstItem="eYp-TW-5e7" firstAttribute="trailing" secondItem="VUw-jc-0yf" secondAttribute="trailing" id="42R-WY-nZT"/>
-                            <constraint firstItem="eYp-TW-5e7" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="MUK-BQ-eXy"/>
-                            <constraint firstItem="eYp-TW-5e7" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="gu2-vk-Ehh"/>
+                            <constraint firstItem="eYp-TW-5e7" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="TIb-oe-AvW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="mOI-FS-AaM">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="L5D-cT-BCR"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="zlQ-1N-vPu"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="detailImage" destination="eYp-TW-5e7" id="XcT-jc-5Vi"/>
+                        <outlet property="detailImage" destination="eYp-TW-5e7" id="ltt-mb-agA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -77,24 +76,27 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Splitter" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" rowHeight="150" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="150"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
+                                <rect key="frame" x="0.0" y="28" width="414" height="136.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="136.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="CAMERAS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="150"/>
+                                            <rect key="frame" x="20" y="0.0" width="374" height="136.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-HeavyItalic" family="Avenir Next" pointSize="50"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <variation key="heightClass=compact-widthClass=regular">
+                                                <fontDescription key="fontDescription" name="AvenirNext-HeavyItalic" family="Avenir Next" pointSize="30"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -111,7 +113,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Splits" id="Zdf-7t-Un8">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="K62-KI-rSu"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="cwc-Uo-kPX"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
